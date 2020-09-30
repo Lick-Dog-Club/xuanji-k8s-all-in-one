@@ -5,3 +5,5 @@
 ![create](./images/create.png)
 ![notready](./images/notready.png)
 ![shell](./images/shell.png)
+![log](./images/log.png)
+![cpumem](./images/cpumem.png)
