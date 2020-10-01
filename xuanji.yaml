@@ -15,7 +15,7 @@ data:
                 [
                     'project'    => 21246576,
                     'file'       => '.env.testing',
-                    'repository' => 'duc/sso',
+                    'repository' => 'duccnzj/sso',
                     'tag'        => fn ($branch, $commit) => 'v2',
                     'chart'      => 'xuanji/sso-chart',
                     'set'        => [
@@ -40,11 +40,11 @@ data:
     LOG_CHANNEL=stderr
 
     DB_CONNECTION=mysql
-    DB_HOST=192.168.199.190
+    DB_HOST=mysql
     DB_PORT=3306
     DB_DATABASE=xuanji
-    DB_USERNAME=root
-    DB_PASSWORD=
+    DB_USERNAME=duc
+    DB_PASSWORD=12345
 
     BROADCAST_DRIVER=log
     CACHE_DRIVER=file
@@ -52,48 +52,17 @@ data:
     SESSION_DRIVER=file
     SESSION_LIFETIME=120
 
-    REDIS_HOST=127.0.0.1
-    REDIS_PASSWORD=null
-    REDIS_PORT=6379
-
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=null
-    MAIL_PASSWORD=null
-    MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS=null
-    MAIL_FROM_NAME="${APP_NAME}"
-
-    AWS_ACCESS_KEY_ID=
-    AWS_SECRET_ACCESS_KEY=
-    AWS_DEFAULT_REGION=us-east-1
-    AWS_BUCKET=
-
-    PUSHER_APP_ID=
-    PUSHER_APP_KEY=
-    PUSHER_APP_SECRET=
-    PUSHER_APP_CLUSTER=mt1
-
-    MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-    MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-
-
     SSO_ENABLED=false
-
-    SSO_PROJECT_NAME=xuanji
-    SSO_BASE_URL=http://sso.local:8888/
-    SSO_LOGOUT_URL=api/logout
 
     GITLAB_URL=https://gitlab.com/
     GITLAB_TOKEN=NsrHhzmzwA1MpS5MPWwn
 
-    K8S_CLUSTER_URL=https://kubernetes.docker.internal:6443
-    K8S_BEARER_TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6IjNpSkRCWGFmaU82a3IwbncwOVItMEI1aW9JYVZhRy1Nd085ZE8tWnhrQ0UifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi04NHo5NCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjFjM2UxZTJkLWFjZDgtNGI2Ny04NWZhLWZmZjUyMDZjYTJiNiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UBW8iAwUfLtjp_4k9qTdgbA9ExGnHXSWsmQsOPqTBDp8MVn7_5KI9pjT7oAawNQ27V5egeSXQtwsSPOMiyo_gHjSixU1iE4AZeNk3F0BnLdGzTsV41hZjveIn_g4tSOL7aBfB26vSJCnxQCGYjqLQr76UasTztSV3vO7AYfQKGO-kOL9-UEjdxotv_AzQmBD63-Vk4Oc9uSXhfc9h4bczRDtRmuWaBxPRVI0AOfesTzW0OjU0szvagyUnahdPtNCN7Xvm0wgL1wB4_niivz_U7ZghCy5wunUdXKFO134ZVPH-L9zqgBGwisReub6V0n3Llz2yoL6dU4r4ITK7DMq1g
+    K8S_CLUSTER_URL=https://47.98.135.180:6443
+    K8S_BEARER_TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6InJjM1NIU1o2SHUxVlNLXzQtWW0wOGx5bDRZc3g4ekpnQTdBNzJDWDQ5UHcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImhlbG0td2FycHBlci1zYS10b2tlbi14czRxNiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJoZWxtLXdhcnBwZXItc2EiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI2YmQwZDcwYS02NTdhLTQ4M2EtYjEwYS1jNTRlY2QxNTg0OTgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDpoZWxtLXdhcnBwZXItc2EifQ.W2YIAmGyh5FAKHRwH70YDd6KIe7rMAJ_6I15MYGify8eD5Njrq-bEbjRne1aBi23dRng4IMudrhG6AyHH4vO4wGhTz8sKUGeItMylIklwIf8M7zCkwBTa0UuvLOpxGTZqZcWgfTRLe-f_zf1HLDQv53ZUa6OzZ--9S2N2Ce344N-HdjLItC4bXj8TVH-wbsih-bB7fg4MCvXfG9CgLrto6yclasGhetm0Eyi5Qr5TWW4bgfkgHkkadgM88aIkTqHl3B0REq_EOhpB5zx_Z_QrbKBCeoCPaOGoHrgSnIUU3QgVhuWHtWk-NxEKsPq2AWntej0l9wDTsm6eLKgbpgTrg
 
     HELM_API_BASE_URL=http://helm-warpper-service.default.svc.cluster.local:8080
 
-    MIX_SHELL_SOCKET_URL=http://terminal.xuanji.local
+    MIX_SHELL_SOCKET_URL=https://terminal.dev.whoops-cn.club
     MIX_NS_PREFIX=devops-
 
 ---
@@ -128,7 +97,7 @@ spec:
                 - key: xuanji
                   path: xuanji.php
       containers:
-        - image: duc/xuanji:v4
+        - image: duccnzj/xuanji:v4
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
@@ -186,15 +155,14 @@ metadata:
   name: xuanji-ingress
 spec:
   rules:
-    - host: web.xuanji.local
+    - host: xuanji.dev.whoops-cn.club
       http:
         paths:
           - backend:
               serviceName: xuanji-service
               servicePort: http
             path: /
-  # tls:
-  # - hosts:
-  #   - ingress.k8s.local
-  #   secretName: tls-secret
-# ---
+  tls:
+  - hosts:
+    - xuanji.dev.whoops-cn.club
+    secretName: xuanji-secret

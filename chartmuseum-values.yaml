@@ -1,0 +1,9 @@
+env:
+  open:
+    STORAGE: local
+    DISABLE_API: false
+persistence:
+  enabled: true
+  storageClass: nfs-provisioner
+  accessMode: ReadWriteOnce
+  size: 8Gi
