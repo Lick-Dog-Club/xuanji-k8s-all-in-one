@@ -1,3 +1,40 @@
+# sa get pod deploy ing svc ns 
+# delete/create ns
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: xuanji
+  name: xuanji
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app: xuanji
+  name: xuanji
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: xuanji
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: xuanji
+subjects:
+  - kind: ServiceAccount
+    name: xuanji
+    namespace: default
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -124,6 +161,7 @@ spec:
               items: 
                 - key: xuanji
                   path: xuanji.php
+      serviceAccount: xuanji
       containers:
         - image: duc/xuanji:v5
           imagePullPolicy: IfNotPresent
