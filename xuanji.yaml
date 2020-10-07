@@ -1,3 +1,27 @@
+# sa get pod deploy ing svc ns 
+# delete/create ns
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: xuanji
+  name: xuanji
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app: xuanji
+  name: xuanji
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["namespaces"]
+    verbs: ["create", "update", "patch", "delete"]
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -57,9 +81,6 @@ data:
     GITLAB_URL=https://gitlab.com/
     GITLAB_TOKEN=NsrHhzmzwA1MpS5MPWwn
 
-    K8S_CLUSTER_URL=https://47.98.135.180:6443
-    K8S_BEARER_TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6InJjM1NIU1o2SHUxVlNLXzQtWW0wOGx5bDRZc3g4ekpnQTdBNzJDWDQ5UHcifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImhlbG0td2FycHBlci1zYS10b2tlbi14czRxNiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJoZWxtLXdhcnBwZXItc2EiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI2YmQwZDcwYS02NTdhLTQ4M2EtYjEwYS1jNTRlY2QxNTg0OTgiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDpoZWxtLXdhcnBwZXItc2EifQ.W2YIAmGyh5FAKHRwH70YDd6KIe7rMAJ_6I15MYGify8eD5Njrq-bEbjRne1aBi23dRng4IMudrhG6AyHH4vO4wGhTz8sKUGeItMylIklwIf8M7zCkwBTa0UuvLOpxGTZqZcWgfTRLe-f_zf1HLDQv53ZUa6OzZ--9S2N2Ce344N-HdjLItC4bXj8TVH-wbsih-bB7fg4MCvXfG9CgLrto6yclasGhetm0Eyi5Qr5TWW4bgfkgHkkadgM88aIkTqHl3B0REq_EOhpB5zx_Z_QrbKBCeoCPaOGoHrgSnIUU3QgVhuWHtWk-NxEKsPq2AWntej0l9wDTsm6eLKgbpgTrg
-
     HELM_API_BASE_URL=http://helm-warpper-service.default.svc.cluster.local:8080
 
     MIX_SHELL_SOCKET_URL=https://terminal.dev.whoops-cn.club
@@ -96,8 +117,9 @@ spec:
               items: 
                 - key: xuanji
                   path: xuanji.php
+      serviceAccount: xuanji
       containers:
-        - image: duccnzj/xuanji:v4
+        - image: duccnzj/xuanji:v5
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
