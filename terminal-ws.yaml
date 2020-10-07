@@ -1,12 +1,39 @@
 apiVersion: v1
-kind: Secret
+kind: ServiceAccount
 metadata:
   labels:
+    app: xuanji-terminal-ws
     group: xuanji
-  name: xuanji-terminal-ws-secret
-type: Opaque
-data:
-  kubeconfig: YXBpVmVyc2lvbjogdjEKY2x1c3RlcnM6Ci0gbmFtZTogImRlbW8iCiAgY2x1c3RlcjoKICAgIHNlcnZlcjogImh0dHBzOi8vNDcuOTguMTM1LjE4MDo2NDQzIgogICAgY2VydGlmaWNhdGUtYXV0aG9yaXR5LWRhdGE6ICJMUzB0TFMxQ1JVZEpUaUJEUlZKVVNVWkpRMEZVUlMwdExTMHRDazFKU1VOM2FrTkRRXAogICAgICBXRnhaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGVFRWSkJkMFJuV1VSV1VWRkVSWGRrY21SWFNtd0tUXAogICAgICBGZE9hRTFDTkZoRVZFbDNUVlJCZDAxVVFYZE5la1Y2VDFadldFUlVUWGROUkd0NVQxUkJkMDE2UlhwUFZtOTNSV3BGVVUxQk5FZEJNXAogICAgICBWVkZRWGhOU0FwaE0xWnBXbE14YWxsVVEwTkJVMGwzUkZGWlNrdHZXa2xvZG1OT1FWRkZRa0pSUVVSblowVlFRVVJEUTBGUmIwTm5aXAogICAgICAwVkNRVTVuTURGeFlsUlNhM2RRQ2t3ek1sWXdlaTgwWTJVMU5ETjVhbVIzWXpBM01sTmxNSFZIZVdkTlRqSmlUbWN6TUM5NVpEazRNXAogICAgICAydFNNRkJJWkhZMWRUTjRiV3RqYlRVMU9XeGlaM2tLTUdKTkt6aHhVRlpFZVdRdk5VRXpRVlZxY1djclJIRlpRbTl4WW5aTWNWaDZkXAogICAgICAyVjJTRVZTTmsxWGJqTm5kazFpV1VKd1dERm1kbmxxZDFWUlIwSmFUUXBWV0RaQ1RIRnZTbWxTYjNCRFRISk9RMUEwWm05VGVVUllRXAogICAgICBXYzNNak5YZDBRcmFETkJabEYzTVZaMWRsaHdka1paWTJOUFV6TmljR281YzBoSFkyOWpDbVl4VUROa1QxTjZSVlkyTWxOS056VnBMXAogICAgICAxSlVaMUpaVm5wMFFrdFRVRm92UjBadGQwdDNVek5QYW1WTWVuRk9UMDV6V2xjM09UQmhTelZ0T1ZOdVdWa0tjVFUyTjFjMlVtZGtSXAogICAgICBFVmtiM3BzZERneVRtNWlNVlF6VG01dk0ySTBWMWxrYVVGVllsZHpPRXRrSzBRMFUydEdRM1JtWjFad2VGUmtURmhoWW5ONFNncElaXAogICAgICBqWXdiRkJ4YzNwdE1FTkJkMFZCUVdGTmFrMURSWGRFWjFsRVZsSXdVRUZSU0M5Q1FWRkVRV2RMYTAxQk9FZEJNVlZrUlhkRlFpOTNVXAogICAgICBVWk5RVTFDQ2tGbU9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSR2RuUlVKQlRVTXlNRGxMTHl0bVpucHRUbUpRUVcxbVZuZHJNXAogICAgICBVZEhUemxZVTFjdlZHMUhWeklLWW5Vd1dIQm5jVlUzYjNBMlVHb3pieTl3V2xsdVlYUkhaVXMzV1VwdE9DODRObEpDTmtsSlZtVkdMXAogICAgICAzbzNZVTA0UW5oWlRWZHZjQ3MzWVV3d00wRTRWd293ZFdoWmRHMVZiMk53Y2tZMmREUkJRM1ZrUlZZeVRGaFFPSGRXVDJ4Q1drazNiXAogICAgICBEVlhaSGR2YkVGTlZFb3hUR1ZHWWpKNE5HeFFjVTlPYzNZck1sZGhDakp1WjJsRlFUbEtXRWRRZFVJMVZtRmhUbWRzYzJveFEwUm1TXAogICAgICAwOUphbEJqY0RjMGNuaFlTVkp2Y0hCeGRGZFZVVFZXUkhCM1owdDVhalJpTUdWM1RVVUtPVGhKWTBWbFFuWnBaRFZhYVRCWWEyZEdiXAogICAgICB5dEhRMmRHVjFnMGJIaHNaVXA1VWxseVptWklWMUpFYzI1dk1tSXZhRUZJYUhGNk1reG5SVUZsWldReFp3cHJheXRTY0RJck9YazVRXAogICAgICBuUmpOM2RFZDJGcFVsbG1Rbmt6ZVhCSWFWQktlR04wU2t0c1RrVkRkVGxYVUd0Q2J6ZDRhRUU5Q2kwdExTMHRSVTVFSUVORlVsUkpSXAogICAgICBrbERRVlJGTFMwdExTMEsiCmNvbnRleHRzOiAKLSBjb250ZXh0OgogICAgY2x1c3RlcjogZGVtbwogICAgdXNlcjogdGVybWluYWwtd3MKICBuYW1lOiBkZW1vCmN1cnJlbnQtY29udGV4dDogImRlbW8iCmtpbmQ6IENvbmZpZwpwcmVmZXJlbmNlczoge30KdXNlcnM6IAotIG5hbWU6IHRlcm1pbmFsLXdzCiAgdXNlcjoKICAgIHRva2VuOiBleUpoYkdjaU9pSlNVekkxTmlJc0ltdHBaQ0k2SW5Kak0xTklVMW8yU0hVeFZsTkxYelF0V1cwd09HeDViRFJaYzNnNGVrcG5RVGRCTnpKRFdEUTVVSGNpZlEuZXlKcGMzTWlPaUpyZFdKbGNtNWxkR1Z6TDNObGNuWnBZMlZoWTJOdmRXNTBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5dVlXMWxjM0JoWTJVaU9pSmtaV1poZFd4MElpd2lhM1ZpWlhKdVpYUmxjeTVwYnk5elpYSjJhV05sWVdOamIzVnVkQzl6WldOeVpYUXVibUZ0WlNJNkltaGxiRzB0ZDJGeWNIQmxjaTF6WVMxMGIydGxiaTE0Y3pSeE5pSXNJbXQxWW1WeWJtVjBaWE11YVc4dmMyVnlkbWxqWldGalkyOTFiblF2YzJWeWRtbGpaUzFoWTJOdmRXNTBMbTVoYldVaU9pSm9aV3h0TFhkaGNuQndaWEl0YzJFaUxDSnJkV0psY201bGRHVnpMbWx2TDNObGNuWnBZMlZoWTJOdmRXNTBMM05sY25acFkyVXRZV05qYjNWdWRDNTFhV1FpT2lJMlltUXdaRGN3WVMwMk5UZGhMVFE0TTJFdFlqRXdZUzFqTlRSbFkyUXhOVGcwT1RnaUxDSnpkV0lpT2lKemVYTjBaVzA2YzJWeWRtbGpaV0ZqWTI5MWJuUTZaR1ZtWVhWc2REcG9aV3h0TFhkaGNuQndaWEl0YzJFaWZRLlcyWUlBbUd5aDVGQUtIUndINzBZRGQ2S0llN3JNQUpfNkkxNU1ZR2lmeThlRDVOanJxLWJFYmpSbmUxYUJpMjNkUm5nNElNdWRyaEc2QXlISDR2TzR3R2hUejhzS1VHZUl0TXlsSWtsd0lmOE03ekNrd0JUYTBVdXZMT3B4R1RacVpjV2dmVFJMZS1mX3pmMUhMRFF2NTNaVWE2T3paLS05UzJOMkNlMzQ0Ti1IZGpMSXRDNGJYajhUVkgtd2JzaWgtYkI3Zmc0TUN2WGZHOUNnTHJ0bzZ5Y2xhc0doZXRtMEV5aTVRcjVUV1c0Ymdma2dIa2thZGdNODhhSWtUcUhsM0IwUkVxX0VPaHBCNXp4X1pfUXJiS0JDZW9DUGFPR29IcmdTbklVVTNRZ1ZodVdIdFdrLU54RUtzUHEyQVdudGVqMGw5d0RUc202ZUxLZ2JwZ1RyZwo=
+  name: terminal-ws
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app: xuanji-terminal-ws
+    group: xuanji
+  name: terminal-ws
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/log"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: terminal-ws
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: terminal-ws
+subjects:
+  - kind: ServiceAccount
+    name: terminal-ws
+    namespace: default
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,23 +52,11 @@ spec:
       labels:
         app: xuanji-terminal-ws
     spec:
-      volumes:
-          - name: kubeconfig
-            secret:
-                secretName: xuanji-terminal-ws-secret
-                items: 
-                  - key: kubeconfig
-                    path: config
+      serviceAccount: terminal-ws
       containers:
-        - image: duccnzj/ws:v1
+        - image: duccnzj/ws:v2
           imagePullPolicy: IfNotPresent
           name: app
-          volumeMounts:
-              - mountPath: /.kube
-                name: kubeconfig
-          command:
-              - "/app"
-              - "--kubeconfig=/.kube/config"
           ports:
             - containerPort: 80
               name: http
@@ -101,4 +116,3 @@ spec:
   - hosts:
     - terminal.dev.whoops-cn.club
     secretName: terminal-ws-secret
-# ---
