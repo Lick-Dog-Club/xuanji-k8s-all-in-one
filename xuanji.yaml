@@ -88,9 +88,6 @@ data:
     GITLAB_URL=https://gitlab.com/
     GITLAB_TOKEN=NsrHhzmzwA1MpS5MPWwn
 
-    K8S_CLUSTER_URL=https://kubernetes.docker.internal:6443
-    K8S_BEARER_TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6IjNpSkRCWGFmaU82a3IwbncwOVItMEI1aW9JYVZhRy1Nd085ZE8tWnhrQ0UifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi04NHo5NCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjFjM2UxZTJkLWFjZDgtNGI2Ny04NWZhLWZmZjUyMDZjYTJiNiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UBW8iAwUfLtjp_4k9qTdgbA9ExGnHXSWsmQsOPqTBDp8MVn7_5KI9pjT7oAawNQ27V5egeSXQtwsSPOMiyo_gHjSixU1iE4AZeNk3F0BnLdGzTsV41hZjveIn_g4tSOL7aBfB26vSJCnxQCGYjqLQr76UasTztSV3vO7AYfQKGO-kOL9-UEjdxotv_AzQmBD63-Vk4Oc9uSXhfc9h4bczRDtRmuWaBxPRVI0AOfesTzW0OjU0szvagyUnahdPtNCN7Xvm0wgL1wB4_niivz_U7ZghCy5wunUdXKFO134ZVPH-L9zqgBGwisReub6V0n3Llz2yoL6dU4r4ITK7DMq1g
-
     HELM_API_BASE_URL=http://helm-warpper-service.default.svc.cluster.local:8080
 
     MIX_SHELL_SOCKET_URL=http://terminal.xuanji.local
@@ -128,7 +125,7 @@ spec:
                 - key: xuanji
                   path: xuanji.php
       containers:
-        - image: duc/xuanji:v4
+        - image: duc/xuanji:v5
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
