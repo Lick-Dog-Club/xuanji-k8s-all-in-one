@@ -103,6 +103,8 @@ metadata:
   labels:
     group: xuanji
   name: xuanji-terminal-ws-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
     - host: terminal.dev.whoops-cn.club

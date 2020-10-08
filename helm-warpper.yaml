@@ -111,9 +111,9 @@ kind: Ingress
 metadata:
   labels:
     app: helm-warpper
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
   name: helm-warpper-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
     - host: api-helm.dev.whoops-cn.club

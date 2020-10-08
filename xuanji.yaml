@@ -16,7 +16,7 @@ metadata:
   name: xuanji
 rules:
   - apiGroups: [""]
-    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces"]
+    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces", "pods/log"]
     verbs: ["get", "list"]
   - apiGroups: [""]
     resources: ["namespaces"]
@@ -69,9 +69,9 @@ data:
 
   env: |
     APP_NAME=玄机
-    APP_ENV=local
+    # APP_ENV=local
     APP_KEY=base64:Lfv97LJROI10OXPQUsS7tfuujiaJRJU1Xz7HhjsXrn8=
-    APP_DEBUG=true
+    # APP_DEBUG=true
     # APP_URL=http://xuanji.work
 
     LOG_CHANNEL=stderr
@@ -188,6 +188,8 @@ metadata:
   labels:
     group: xuanji
   name: xuanji-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   rules:
     - host: xuanji.dev.whoops-cn.club
