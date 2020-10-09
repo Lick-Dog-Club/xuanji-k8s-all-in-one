@@ -16,7 +16,7 @@ metadata:
   name: xuanji
 rules:
   - apiGroups: [""]
-    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces"]
+    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces", "pods/log"]
     verbs: ["get", "list"]
   - apiGroups: [""]
     resources: ["namespaces"]
