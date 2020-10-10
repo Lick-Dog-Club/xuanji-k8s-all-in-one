@@ -42,31 +42,6 @@ metadata:
   labels:
     app: xuanji
 data:
-  xuanji: |
-    <?php
-
-    return [
-        'deploy_configs' => [
-            'project_group' => 'duccnzj',
-            'repos'         => [
-                [
-                    'project'    => 21246576,
-                    'file'       => '.env.testing',
-                    'repository' => 'duc/sso',
-                    'tag'        => fn ($branch, $commit) => 'v2',
-                    'chart'      => 'xuanji/sso-chart',
-                    'set'        => [
-                        'redis.enabled=true',
-                        'redis.cluster.slaveCount=0',
-                        'redis.usePassword=false',
-                        'service.type=NodePort',
-                    ],
-                ],
-            ],
-        ],
-    ];
-
-
   env: |
     APP_NAME=玄机
     APP_ENV=local
@@ -155,24 +130,15 @@ spec:
               items: 
                 - key: env
                   path: .env
-          - name: xuanji
-            configMap:
-              name: xuanji-configmap
-              items: 
-                - key: xuanji
-                  path: xuanji.php
       serviceAccount: xuanji
       containers:
-        - image: duc/xuanji:v5
+        - image: duc/xuanji:v6
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
               - mountPath: /var/www/html/.env
                 name: env
                 subPath: .env
-              - mountPath: /var/www/html/config/xuanji.php
-                name: xuanji
-                subPath: xuanji.php
           ports:
             - containerPort: 80
               name: http
