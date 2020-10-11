@@ -12,6 +12,10 @@
 ![systeminfo](./images/systeminfo.png)
 
 
+## 如何开启玄机
+
+只需要在项目目录下配置 .xuanji.yaml 即可
+
 ```yaml
 config_file: .env.example # 必填
 config_file_type: env # 必填 env / yaml
@@ -31,3 +35,7 @@ default_values: # 默认的 chart values 配置 默认 空
 branches: # 配置的分支 默认 *
   - "*"
 ```
+
+## TODO
+
+补全文档
