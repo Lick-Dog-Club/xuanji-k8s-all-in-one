@@ -56,7 +56,7 @@ spec:
                 - key: config
                   path: helm-warpper-config.yaml
       containers:
-        - image: duccnzj/helm:v7
+        - image: duccnzj/helm:v8
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
