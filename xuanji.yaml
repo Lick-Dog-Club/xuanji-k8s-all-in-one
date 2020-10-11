@@ -18,6 +18,12 @@ rules:
   - apiGroups: [""]
     resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces", "pods/log"]
     verbs: ["get", "list"]
+  - apiGroups: ["extensions"]
+    resources: ["ingresses"]
+    verbs: ["get", "list"]
+  - apiGroups: ["metrics.k8s.io"]
+    resources: ["pods"]
+    verbs: ["get", "list"]
   - apiGroups: [""]
     resources: ["namespaces"]
     verbs: ["create", "update", "patch", "delete"]
@@ -66,8 +72,8 @@ data:
 
     SSO_ENABLED=false
 
-    GITLAB_URL=https://gitlab.com/
-    GITLAB_TOKEN=NsrHhzmzwA1MpS5MPWwn
+    GITLAB_URL=https://gitlab.whoops-cn.club/
+    GITLAB_TOKEN=N2662hpBzxtwFyiW_wqi
 
     HELM_API_BASE_URL=http://helm-warpper-service.default.svc.cluster.local:8080
 
