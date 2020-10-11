@@ -7,6 +7,9 @@
 ![shell](./images/shell.png)
 ![log](./images/log.png)
 ![cpumem](./images/cpumem.png)
+![dizhi](./images/dizhi.png)
+![pipeline](./images/pipeline.png)
+![systeminfo](./images/systeminfo.png)
 
 
 ```yaml
