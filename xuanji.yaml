@@ -25,7 +25,7 @@ rules:
     resources: ["pods"]
     verbs: ["get", "list"]
   - apiGroups: [""]
-    resources: ["namespaces"]
+    resources: ["namespaces", "secrets"]
     verbs: ["create", "update", "patch", "delete"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -50,10 +50,7 @@ metadata:
 data:
   env: |
     APP_NAME=玄机
-    # APP_ENV=local
     APP_KEY=base64:Lfv97LJROI10OXPQUsS7tfuujiaJRJU1Xz7HhjsXrn8=
-    # APP_DEBUG=true
-    # APP_URL=http://xuanji.work
 
     LOG_CHANNEL=stderr
 
@@ -80,6 +77,12 @@ data:
     MIX_SHELL_SOCKET_URL=https://terminal.dev.whoops-cn.club
     MIX_NS_PREFIX=devops-
 
+    WILDCARD_DOMAIN=*.dev.whoops-cn.club
+
+    # 自动创建 imagepullsecret
+    DOCKER_USERNAME=
+    DOCKER_PASSWORD=
+    DOCKER_SERVER=
 ---
 apiVersion: apps/v1
 kind: Deployment
