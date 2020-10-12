@@ -138,7 +138,7 @@ spec:
                   path: .env
       serviceAccount: xuanji
       containers:
-        - image: duc/xuanji:v8
+        - image: duc/xuanji:v9
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
