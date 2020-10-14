@@ -54,7 +54,7 @@ spec:
     spec:
       serviceAccount: terminal-ws
       containers:
-        - image: duccnzj/ws:v2
+        - image: duccnzj/ws:v3
           imagePullPolicy: IfNotPresent
           name: app
           ports:
