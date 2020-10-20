@@ -101,10 +101,9 @@ spec:
       port: 8080
       protocol: TCP
       targetPort: http
-      nodePort: 32200
   selector:
     app: helm-warpper
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress

@@ -16,7 +16,7 @@ metadata:
   name: xuanji
 rules:
   - apiGroups: [""]
-    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces", "pods/log"]
+    resources: ["pods", "services", "ingresses", "nodes", "deployments", "namespaces", "pods/log", "pods/status"]
     verbs: ["get", "list"]
   - apiGroups: ["extensions"]
     resources: ["ingresses"]
@@ -55,7 +55,7 @@ data:
     LOG_CHANNEL=stderr
 
     DB_CONNECTION=mysql
-    DB_HOST=mysql
+    DB_HOST=mysql.default.svc.cluster.local
     DB_PORT=3306
     DB_DATABASE=xuanji
     DB_USERNAME=duc
@@ -70,7 +70,7 @@ data:
     SSO_ENABLED=false
 
     GITLAB_URL=https://gitlab.whoops-cn.club/
-    GITLAB_TOKEN=N2662hpBzxtwFyiW_wqi
+    GITLAB_TOKEN=RLKERyTaZa7dJqbnHUZr
 
     HELM_API_BASE_URL=http://helm-warpper-service.default.svc.cluster.local:8080
 
@@ -82,7 +82,7 @@ data:
     # 自动创建 imagepullsecret
     DOCKER_USERNAME=
     DOCKER_PASSWORD=
-    DOCKER_SERVER=
+    DOCKER_SERVER=registry.cn-hangzhou.aliyuncs.com
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -110,7 +110,7 @@ spec:
                   path: .env
       serviceAccount: xuanji
       containers:
-        - image: duccnzj/xuanji:v10
+        - image: duccnzj/xuanji:v12
           imagePullPolicy: IfNotPresent
           name: app
           volumeMounts:
@@ -152,10 +152,9 @@ spec:
       port: 8080
       protocol: TCP
       targetPort: http
-      nodePort: 32300
   selector:
     app: xuanji
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
